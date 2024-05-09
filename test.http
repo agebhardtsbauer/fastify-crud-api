@@ -1,0 +1,62 @@
+### 
+@hostname = http://localhost:3007
+
+###GET ALL ARTICLES
+GET {{hostname}}/articles HTTP/1.1
+
+###GET Article 1
+GET {{hostname}}/articles/1 HTTP/1.1
+
+###GET Article 2
+GET http://localhost:3007/articles/1 HTTP/1.1
+
+###GET Article 3
+GET http://localhost:3007/articles/1 HTTP/1.1
+
+###GET ARTICLES about CATS
+GET http://localhost:3007/articles/find/cats HTTP/1.1
+
+###GET ARTICLES about DOGS
+GET http://localhost:3007/articles/find/dog HTTP/1.1
+
+###GET ARTICLES about Lizards
+GET http://localhost:3007/articles/find/liz HTTP/1.1
+
+###CREATE ARTICLE about cats
+POST http://localhost:3007/articles HTTP/1.1
+Content-Type: application/json
+
+{
+"title": "cats",
+"content": "cats are cool"
+}
+
+### Create article about lizards
+POST {{hostname}}/articles HTTP/1.1
+content-type: application/json
+
+{
+  "title": "ArticleNew",
+  "content": "Content4 lizard"
+}
+
+### (400) Create a new article without title (400)
+
+POST {{hostname}}/articles HTTP/1.1
+content-type: application/json
+
+{
+  "content": "Content4 lizard"
+}
+
+### Delete article by ID
+DELETE {{hostname}}/articles/2 HTTP/1.1
+
+### Update Article 1 to Lizards
+PUT {{hostname}}/articles/1 HTTP/1.1
+Content-Type: application/json
+
+{
+"title": "Lizards",
+"content": "Lizards are cool"
+}

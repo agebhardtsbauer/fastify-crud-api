@@ -1,0 +1,23 @@
+{
+  "name": "fastify-crud-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fastify": "3.18.0",
+    "fastify-cors": "^6.1.0",
+    "fastify-swagger": "4.7.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "vitest": "^1.6.0"
+  }
+}
