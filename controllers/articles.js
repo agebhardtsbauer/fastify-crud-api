@@ -6,9 +6,25 @@ const getAllArticles = (req, reply) => {
 };
 
 const getArticleById = (req, reply) => {
-  const { id } = req.params;
-  const article = articles.find((article) => article.id === parseInt(id));
-  reply.send(article);
+  const id = req.params.id.toString();
+  let article = articles.find((article) => article.id.toString() === id);
+
+  if (!article) {
+    reply.code(404).send({ error: "Article not found" });
+  } else {
+    reply.send(article);
+  }
+};
+
+const getArticleByTitle = (req, reply) => {
+  const { title } = req.params;
+  let article = articles.find((article) => article.title.trim() === title);
+
+  if (!article) {
+    reply.code(404).send({ error: "Article not found" });
+  } else {
+    reply.send(article);
+  }
 };
 
 const getArticlesByContent = (req, reply) => {
@@ -58,4 +74,5 @@ module.exports = {
   addArticle,
   deleteArticleById,
   updateArticleById,
+  getArticleByTitle,
 };

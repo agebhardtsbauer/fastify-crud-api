@@ -5,7 +5,10 @@
 GET {{hostname}}/articles HTTP/1.1
 
 ###GET Article 1
-GET {{hostname}}/articles/1 HTTP/1.1
+GET {{hostname}}/articles/Article3 HTTP/1.1
+
+###GET Article with UUID
+GET http://localhost:3007/articles/829ec041-55ee-43ff-ab77-c5cc2e44ad95 HTTP/1.1
 
 ###GET Article 2
 GET http://localhost:3007/articles/1 HTTP/1.1
@@ -17,7 +20,7 @@ GET http://localhost:3007/articles/1 HTTP/1.1
 GET http://localhost:3007/articles/find/cats HTTP/1.1
 
 ###GET ARTICLES about DOGS
-GET http://localhost:3007/articles/find/dog HTTP/1.1
+GET http://localhost:3007/articles/find/fish HTTP/1.1
 
 ###GET ARTICLES about Lizards
 GET http://localhost:3007/articles/find/liz HTTP/1.1

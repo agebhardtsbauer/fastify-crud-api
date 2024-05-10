@@ -6,6 +6,7 @@ const {
   addArticle,
   deleteArticleById,
   updateArticleById,
+  getArticleByTitle,
 } = require("../controllers/articles");
 
 const Article = {
@@ -51,6 +52,16 @@ const getArticleByIdOpts = {
     },
   },
   handler: getArticleById,
+};
+
+//get article by id schema
+const getArticleByTitleOpts = {
+  schema: {
+    response: {
+      200: Article,
+    },
+  },
+  handler: getArticleByTitle,
 };
 
 const postArticleOpts = {
@@ -107,6 +118,9 @@ function articlesRoutes(fastify, options, done) {
 
   //get article by id
   fastify.get("/articles/:id", getArticleByIdOpts);
+
+  //   //get article by Title
+  //   fastify.get("/articles/:title", getArticleByTitleOpts);
 
   //Case insensitive search of article content
   fastify.get("/articles/find/:match", getArticlesByContentsOpts);
